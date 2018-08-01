@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-learn",
+  "version": "1.0.0",
+  "description": "learning nodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gunturkh/nodejs-learn.git"
+  },
+  "keywords": [
+    "learn",
+    "nodejs"
+  ],
+  "author": "GunturKH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gunturkh/nodejs-learn/issues"
+  },
+  "homepage": "https://github.com/gunturkh/nodejs-learn#readme",
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}
