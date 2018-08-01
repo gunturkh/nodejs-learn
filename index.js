@@ -1,2 +1,5 @@
-const a = 1+1
-console.log(a)
+const fetch = require ('node-fetch');
+fetch('https://api.github.com/users/gunturkh')
+    .then(res => res.json())
+    .then(json =>  console.log(json));
+
