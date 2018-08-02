@@ -4,6 +4,7 @@
   "description": "learning nodeJS",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "node index"
   },
   "repository": {
@@ -14,8 +15,8 @@
     "learn",
     "nodejs"
   ],
-  "author": "GunturKH",
-  "license": "ISC",
+  "author": "Guntur Kurniawan Heryanto",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gunturkh/nodejs-learn/issues"
   },
