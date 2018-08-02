@@ -2,39 +2,48 @@ const fetch = require('node-fetch');
 const gitURL = 'https://api.github.com/users/gunturkh/followers'
 const swapiURL = 'https://swapi.co/api/people/'
 const readline = require('readline');
+const log = (data) => { console.log(data) };
+const defaultMessage =
+  (
+    `Hello!>> 
+   Menu :
+   github-follower
+   star-war
+   exit
+   help
+  `)
+const helpMessage =
+  (
+  `Available option are:
+  github-follower
+  star-war
+  exit
+  help
+  `)
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'Hello!>> \n Menu : \n github-follower \n star-war \n exit \n'
+  prompt: defaultMessage
 });
 
 rl.prompt();
 
 rl.on('line', (line) => {
-  switch (line.trim()) {
-    case 'github-follower':
-      fetch(gitURL)
-        .then(res => res.json())
-        .then(json => json.forEach(item => { console.log(`Name: ${item.login}, id: ${item.id}`) }))
-      break;
-    case 'star-war':
-      fetch(swapiURL)
-        .then(res => res.json())
-        .then(json => json.results.forEach(item => { console.log(`Character name: ${item.name}, Birth year: ${item.birth_year}`) }))
-      break;
-    case '-h':
-      console.log("Available option are: \n github-follower \n star-war \n exit \n")
-      break;
-    case 'exit':
-      console.log('Have a great day!');
-      process.exit(0)
-      break;
-
-    default:
-      console.log(`Say what? I might have heard '${line.trim()}. Type -h for help'`);
-      break;
+  const inputLine = line.trim();
+  if (inputLine === 'help') { log(helpMessage) }
+  else if (inputLine === 'github-follower') {
+    fetch(gitURL)
+      .then(res => res.json())
+      .then(json => json.forEach(item => { log(`Name: ${item.login}, id: ${item.id}`) }))
   }
-  rl.prompt();
+  else if (inputLine === 'star-war') {
+    fetch(swapiURL)
+      .then(res => res.json())
+      .then(json => json.results.forEach(item => { log(`Character name: ${item.name}, Birth year: ${item.birth_year}`) }))
+  }
+  else if (inputLine === 'exit') {log('Have a great day!'); process.exit(0)}
+  else { log(`Say what? I might have heard '${line.trim()}. Type help for additional information'`);}
 })
 
 
