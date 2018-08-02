@@ -23,7 +23,7 @@ rl.on('line', (line) => {
         .then(json => json.results.forEach(item => { console.log(`Character name: ${item.name}, Birth year: ${item.birth_year}`) }))
       break;
     case '-h':
-      console.log("Available option are: -github-follower")
+      console.log("Available option are: \n github-follower \n star-war \n exit \n")
       break;
     case 'exit':
       console.log('Have a great day!');
